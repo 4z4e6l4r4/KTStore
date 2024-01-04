@@ -1,0 +1,66 @@
+﻿@model KTStoreSite.Models.Category
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="card p-4">
+
+    <p>
+        <a asp-action="Index" class="btn btn-primary btn-sm float-end"><i class="fa fa-arrow-circle-left"></i>  Back To List</a>
+    </p>
+
+<h3>Create Category</h3>
+
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-area="Admin" asp-controller="Category" asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Name" class="control-label"></label>
+                <input asp-for="Name" class="form-control" />
+                <span asp-validation-for="Name" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Description" class="control-label"></label>
+                <input asp-for="Description" class="form-control" />
+                <span asp-validation-for="Description" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Image" class="control-label"></label>
+                <input asp-for="Image" class="form-control" />
+                <span asp-validation-for="Image" class="text-danger"></span>
+            </div>
+
+    @*         <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsStatus" /> @Html.DisplayNameFor(model => model.IsStatus)
+                </label>
+            </div> *@
+
+                <div class="form-check form-switch mb-3 mt-3">
+                    <label for="IsStatus">
+                        Status
+                    </label>
+                    <input class="form-check-input" asp-for="IsStatus" type="checkbox" role="switch" data-val="true" value="true">
+                </div>
+
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsDelete" /> @Html.DisplayNameFor(model => model.IsDelete)
+                </label>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Create Category" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

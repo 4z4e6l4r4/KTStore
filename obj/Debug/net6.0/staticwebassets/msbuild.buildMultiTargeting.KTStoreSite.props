@@ -1,0 +1,3 @@
+﻿<Project>
+  <Import Project="..\build\KTStoreSite.props" />
+</Project>
