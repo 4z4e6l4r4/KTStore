@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2Ai9DE30Pk2J56CCdMKWzUw5vFQT6qUmrXBDws2/NIeAw7vij1e8bgnZaWbmSusEJlIYh4IhFukgdObxPGB+oQ==",
+  "dgSpecHash": "YOFRzC3zA5ooFnu/Etbh7qcResCLGQb/RvfMesJ0PbGOVE7kEwBn6lS6dvN/UrWe8RfyHzgfsVJhSkqM/EvTDQ==",
   "success": true,
-  "projectFilePath": "C:\\Users\\LENOVO\\Documents\\GitHub\\KTStore\\KTStoreSite\\KTStoreSite.csproj",
+  "projectFilePath": "C:\\Users\\LENOVO\\Documents\\GitHub\\KTStoreSite\\KTStoreSite.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\LENOVO\\.nuget\\packages\\humanizer\\2.14.1\\humanizer.2.14.1.nupkg.sha512",
     "C:\\Users\\LENOVO\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",

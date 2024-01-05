@@ -2,6 +2,7 @@
 using KTStoreSite.Data;
 using KTStoreSite.Models;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace KTStoreSite.Areas.Admin.Services.Models
 {
@@ -39,12 +40,29 @@ namespace KTStoreSite.Areas.Admin.Services.Models
         public Task<Category> GetCategoryByIdAsync(int id)
         {
             var category = db.Category.FirstOrDefaultAsync(x => x.Id == id && !x.IsDelete);
-            throw category;
+            return category;
         }
 
-        public Task<bool> UpdateCategoryAsync(Category category)
+        public async Task<bool> UpdateCategoryAsync(Category category)
         {
-            throw new NotImplementedException();
+            var updateCategory = await db.Category.FirstOrDefaultAsync(x => x.Id == category.Id && !x.IsDelete);
+            var result = false;
+            if (updateCategory != null)
+            {
+                updateCategory.Name = category.Name;
+                updateCategory.Description = category.Description;
+                updateCategory.IsStatus = category.IsStatus;
+                if (String.IsNullOrEmpty(category.Image))
+                {
+                    updateCategory.Image = category.Image;
+                }
+                updateCategory.Image = category.Image;
+
+                await db.SaveChangesAsync(); // Değişiklikleri kaydet
+                result = true;
+            }
+            return result;
+
         }
     }
 }

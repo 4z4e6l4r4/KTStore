@@ -67,40 +67,49 @@ namespace KTStoreSite.Areas.Admin.Controllers
             return View(category);
         }
 
-        //        // POST: Admin/Category/Edit/5
-        //        // To protect from overposting attacks, enable the specific properties you want to bind to.
-        //        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
-        //        [HttpPost]
-        //        [ValidateAntiForgeryToken]
-        //        public async Task<IActionResult> Edit(int id,  Category category)
-        //        {
-        //            if (id != category.Id)
-        //            {
-        //                return NotFound();
-        //            }
+        // POST: Admin/Category/Edit/5
+        // To protect from overposting attacks, enable the specific properties you want to bind to.
+        // For more details, see http://go.microsoft.com/fwlink/?LinkId=317598.
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public async Task<IActionResult> Edit(int id, Category category)
+        {
+          
+            if (ModelState.IsValid)
+            {
 
-        //            if (ModelState.IsValid)
-        //            {
-        //                try
-        //                {
-        //                    _context.Update(category);
-        //                    await _context.SaveChangesAsync();
-        //                }
-        //                catch (DbUpdateConcurrencyException)
-        //                {
-        //                    if (!CategoryExists(category.Id))
-        //                    {
-        //                        return NotFound();
-        //                    }
-        //                    else
-        //                    {
-        //                        throw;
-        //                    }
-        //                }
-        //                return RedirectToAction(nameof(Index));
-        //            }
-        //            return View(category);
-        //        }
+                var files = HttpContext.Request.Form.Files;
+                if (files.Count > 0)
+                {
+                    string fileName = Guid.NewGuid().ToString();
+                    var upload = Path.Combine(he.WebRootPath, @"images/category");    
+                    var ext = Path.GetExtension(files[0].FileName);
+
+                    if (category.Image != null)
+                    {
+                        var imgPath = Path.Combine(he.WebRootPath, category.Image.TrimStart('\\'));
+                        if (System.IO.File.Exists(imgPath))
+                        {
+                            System.IO.File.Delete(imgPath);
+                        }
+                        using(var fileStreams = new FileStream(Path.Combine(upload, fileName +ext), FileMode.Create))
+                        {
+                            files[0].CopyTo(fileStreams);
+                        }
+                        category.Image = fileName + ext;
+                    }
+                }
+                var result = await categoryService.UpdateCategoryAsync(category);
+
+                TempData["Message"] = result ?
+                      "Category Added Succesfull" : "";
+
+            }
+            return View(category);
+        }
+
+
+
 
         //        // GET: Admin/Category/Delete/5
         //        public async Task<IActionResult> Delete(int? id)

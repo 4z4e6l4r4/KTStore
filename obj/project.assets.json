@@ -11500,11 +11500,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\LENOVO\\Documents\\GitHub\\KTStore\\KTStoreSite\\KTStoreSite.csproj",
+      "projectUniqueName": "C:\\Users\\LENOVO\\Documents\\GitHub\\KTStoreSite\\KTStoreSite.csproj",
       "projectName": "KTStoreSite",
-      "projectPath": "C:\\Users\\LENOVO\\Documents\\GitHub\\KTStore\\KTStoreSite\\KTStoreSite.csproj",
+      "projectPath": "C:\\Users\\LENOVO\\Documents\\GitHub\\KTStoreSite\\KTStoreSite.csproj",
       "packagesPath": "C:\\Users\\LENOVO\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\LENOVO\\Documents\\GitHub\\KTStore\\KTStoreSite\\obj\\",
+      "outputPath": "C:\\Users\\LENOVO\\Documents\\GitHub\\KTStoreSite\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
         "C:\\Users\\LENOVO\\AppData\\Roaming\\NuGet\\NuGet.Config",
